@@ -1,14 +1,12 @@
 console.log('before')
 get_user_github(1, (userInfo) => {
-    console.log('username : ', userInfo.username);
-    get_user_repo((repo) => {
-        get_user_comments('5K', repo[0], (repos) => {
-            get_user_like(repo[0], '6K', '4K', (single_repo) => {
-                console.log('repo : ', single_repo);
-            })
-        })
-    })
 
+    get_user_repo((repo) => {
+        display_user_name(userInfo.username)
+        display_repositories(repo)
+        get_user_comments(repo[0], '5K', display_comments)
+        get_user_like(repo[0], '4K', display_likes);
+    })
 })
 console.log('after')
 
@@ -24,14 +22,33 @@ function get_user_repo(callback) {
     }, 2000)
 }
 
-function get_user_comments(comments, repo, callback) {
+function get_user_comments(repo, comments, callback) {
     setTimeout(() => {
         callback({ repo: repo, comments: comments })
     }, 2000)
 }
 
-function get_user_like(repo, comments, likes, callback) {
+function get_user_like(repo, likes, callback) {
     setTimeout(() => {
-        callback({ repo: repo, comments: comments, likes: likes });
+        callback({ repo: repo, likes: likes });
     }, 2000);
+}
+
+
+// Named Functions
+
+function display_user_name(username) {
+    console.log('username : ', username);
+}
+
+function display_repositories(repo) {
+    console.log('repo : ', repo);
+}
+
+function display_comments(comments) {
+    console.log('repo comments : ', comments);
+}
+
+function display_likes(likes) {
+    console.log('repo likes : ', likes);
 }
