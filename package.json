@@ -1,0 +1,12 @@
+{
+    "name": "sych_asychronous",
+    "version": "1.0.0",
+    "description": "learned under the hood how to work sychronous and asynchronous , callback , promises ",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "miirshe",
+    "license": "ISC"
+}
